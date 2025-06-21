@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: standalone-chrome
+    ports:
+      - "4444:4444"
+    shm_size: 2gb
+    networks:
+      - grid
+
+  firefox:
+    image: selenium/standalone-firefox:latest
+    container_name: standalone-firefox
+    ports:
+      - "4445:4444"
+    shm_size: 2gb
+    networks:
+      - grid
+
+networks:
+  grid:
+    driver: bridge
